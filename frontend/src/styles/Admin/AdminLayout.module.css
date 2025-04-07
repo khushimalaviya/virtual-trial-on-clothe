@@ -1,0 +1,33 @@
+.adminLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.adminContainer {
+  display: flex;
+  flex: 1;
+}
+
+.adminContent {
+  margin-top: 60px;
+  margin-left: 250px;
+  padding: 20px;
+  width: calc(100% - 250px);
+  min-height: calc(100vh - 60px);
+  background-color: white;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 250px;
+  width: calc(100% - 250px);
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}

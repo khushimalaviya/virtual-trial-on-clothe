@@ -1,0 +1,148 @@
+.dashboard-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #621818;
+}
+
+.dashboard-subtitle {
+  font-size: 18px;
+  color: #681132;
+}
+
+.step-card {
+  background: rgba(175, 84, 148, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.step-card:hover {
+  transform: scale(1.05);
+}
+
+.step-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+}
+
+.testimonial-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.trend-card {
+  background: rgba(123, 36, 36, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.trend-card:hover {
+  transform: scale(1.05);
+}
+
+.trend-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.trend-card {
+  width: 100%;
+  max-width: 250px; /* Ensures consistency */
+  margin: auto; /* Centers the cards */
+}
+
+.trend-card img {
+  width: 100%;
+  aspect-ratio: 4/3; /* Ensures all images have the same aspect ratio */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.welcome-message {
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  /* border-bottom: 2px solid #ddd; */
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative; /* Remove absolute positioning */
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #7f3131, #a74c4c);
+  border-radius: 20px;
+  padding: 40px;
+  /* margin: 50px auto; Adjust spacing */
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: white;
+  color: #652d38;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.primary-btn:hover, .secondary-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.primary-btn .button-icon {
+  margin-right: 10px;
+}

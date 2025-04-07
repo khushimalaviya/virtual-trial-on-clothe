@@ -1,0 +1,181 @@
+.admin-categories {
+    text-align: center;
+    padding: 30px;
+    background: #ffffff; /* White background */
+    color: #333333; /* Darker text for contrast */
+    min-height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #222222; /* Dark gray for heading */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.add-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #f9f9f9; /* Light gray background for form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.add-category input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #cccccc; /* Light gray border */
+    width: 100%;
+    box-sizing: border-box;
+    background: #ffffff; /* White input background */
+    color: #333333;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.add-category input:focus {
+    border-color: #007bff; /* Blue focus outline for accessibility */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.add-button {
+    background-color: #007bff; /* Professional blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.preview-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 15px;
+    border: 2px solid #e0e0e0; /* Light border for images */
+}
+
+.categories-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 20px;
+}
+
+.category-card {
+    background: #ffffff; /* White card background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s;
+    border: 1px solid #e0e0e0; /* Light border for cards */
+}
+
+.category-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.category-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0; /* Light border for images */
+}
+
+.category-name {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #222222;
+    font-size: 1.1em;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.edit-button {
+    background: #28a745; /* Professional green */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.delete-button {
+    background: #dc3545; /* Professional red */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.save-button {
+    background: #007bff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #0056b3;
+}
+
+.cancel-button {
+    background: #6c757d;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #5a6268;
+}

@@ -1,0 +1,141 @@
+/* === General Styling === */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background: linear-gradient(to right, #d5b4b4, #a67d7d); */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body{
+    background-color: #d5b4b4;
+}
+
+/* Glassmorphism Effect */
+.login-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 60px;
+    width: 500px;
+    height: 750px;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* === Title & Subtitle === */
+.login-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #5d314a, #7b3644);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 4px 4px 20px rgba(141, 99, 120, 0.7);
+}
+
+
+
+.login-subtitle {
+    font-size: 1rem;
+    color: #704f4f;
+    margin-bottom: 20px;
+}
+
+/* === Input Fields === */
+.login-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(229, 212, 212, 0.884);
+    outline: none;
+    font-size: 1rem;
+    color: #4a2c2c;
+}
+
+.login-input::placeholder {
+    color: rgba(74, 44, 44, 0.7);
+}
+
+.login-input:focus {
+    border-color: #8b5c5c;
+    box-shadow: 0 0 10px rgba(139, 92, 92, 0.5);
+}
+
+/* === Buttons === */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, #8b5c5c, #5a3d3d);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #5a3d3d, #8b5c5c);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(139, 92, 92, 0.4);
+}
+
+/* === Google Login Button === */
+.google-login-btn  {
+    background: linear-gradient(135deg, #8b5c5c, #5a3d3d);
+    color: rgb(239, 230, 230);
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.google-login-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Google Icon */
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Sign Up Link */
+.signup-link {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #5a3d3d;
+}
+
+.signup-link a {
+    color: #8b5c5c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.or{
+    color: #8b5c5c;
+}

@@ -1,0 +1,35 @@
+.navbar1 {
+    position: fixed;
+    top: 0;
+    left: 250px; /* Sidebar ki width ke hisaab se adjust karein */
+    width: calc(100% - 250px);
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1100; /* Navbar should stay above the sidebar */
+  
+  }
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #1e1e2f; /* or your sidebar color */
+    z-index: 1000; /* keep lower than navbar if navbar overlaps */
+  }
+  .dashboard-container {
+    display: flex;
+    background-color: white !important; /* Ensure it's not black */
+  }
+  
+  .dashboard-main {
+    flex-grow: 1;
+    margin-left: 250px;
+    padding-top: 60px;
+    background-color: white !important; /* Remove black */
+    min-height: 100vh;
+  }

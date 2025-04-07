@@ -1,0 +1,130 @@
+.dashboard-container {
+    padding: 30px;
+    background: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light text for contrast */
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.5em;
+    color: #ffd700; /* Gold for loading text */
+    padding: 50px;
+}
+
+.summary-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: #2c2c2c; /* Dark card background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.card h3 {
+    font-size: 1.1em;
+    color: #cccccc;
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.card p {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.chart-container {
+    margin-bottom: 40px;
+    background: #2c2c2c;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.chart-container h3 {
+    font-size: 1.3em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.recent-trials {
+    background: #2c2c2c;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.recent-trials h3 {
+    font-size: 1.3em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.recent-trials table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #333333;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.recent-trials th,
+.recent-trials td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #444444;
+}
+
+.recent-trials th {
+    background: #343a40;
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.recent-trials td {
+    color: #e0e0e0;
+}
+
+.recent-trials tr:hover {
+    background: #3c3f43;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .summary-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .chart-container,
+    .recent-trials {
+        padding: 15px;
+    }
+}

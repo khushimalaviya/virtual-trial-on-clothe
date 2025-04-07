@@ -1,0 +1,248 @@
+
+/* General Page Styling */
+body{
+  /* background-image: url("../assets/bg-clothe.webp"); */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  background-color: rgb(247, 243, 239);
+
+}
+
+.about-page {
+    text-align: center;
+    color: #333;
+    padding: 40px;
+    /* background-image: url("../assets/bg-clothe.webp"); */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* background-color: rgb(219, 205, 210); */
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    position: relative; /* Remove absolute positioning */
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #7f3131, #a74c4c);
+    border-radius: 20px;
+    padding: 40px;
+    /* margin: 50px auto; Adjust spacing */
+    max-width: 800px;
+  }
+  
+  .hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+  }
+  
+  .hero-text span {
+    color: #412a37; /* Highlighted text */
+  }
+  
+  .hero-text p {
+    font-size: 1.3rem;
+    margin-top: 10px;
+  }
+  
+  /* Image Animation */
+  .about-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  
+    /* Image Animation */
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideInLeft 1s ease-out forwards;
+  }
+  
+  /* Content (Text) Animation */
+  .about-text {
+    opacity: 0;
+    transform: translateX(100px);
+    animation: slideInRight 1s ease-out forwards;
+    animation-delay: 0.3s; /* Thoda delay tak text aaye */
+  }
+  
+  /* Keyframes for Image */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Keyframes for Text */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  
+  /* About Section - Left Image, Right Content */
+  .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 10%;
+  }
+  
+  .about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .about-image {
+    flex: 1;
+    max-width: 50%;
+    text-align: center;
+  }
+  
+  .about-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-text {
+    flex: 1;
+    max-width: 50%;
+    padding-left: 40px;
+    text-align: left;
+  }
+  
+  .about-text h2 {
+    font-size: 2rem;
+    color: #b83b5e;
+    margin-bottom: 15px;
+  }
+  
+  .about-text p {
+    font-size: 1.1rem;
+    color: #5b4d4d;
+    line-height: 1.6;
+  }
+  
+  /* Features Section */
+  .features {
+    background: linear-gradient(90deg, #593b48, #974343);
+    padding: 80px 20px;
+    border-radius: 15px;
+    color: white;
+    text-align: center; 
+  }
+  
+  .features h2 {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .features-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .feature-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .feature-box:hover {
+    transform: scale(1.1);
+  }
+  
+  .feature-box span {
+    font-size: 3rem;
+    display: block;
+  }
+  
+  .feature-box h3 {
+    font-size: 1.4rem;
+    margin-top: 15px;
+    color: #c82a3d;
+  }
+  
+  /* Why Choose Us & Sustainability */
+  .why-choose-us, .sustainability {
+    margin: 80px auto;
+    max-width: 800px;
+  }
+  
+  .why-choose-us h2, .sustainability h2 {
+    font-size: 2.5rem;
+    color: #b83b5e;
+  }
+  
+  .why-choose-us p, .sustainability p {
+    font-size: 1.2rem;
+    color: #5c2424;
+    line-height: 1.8;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-overlay h1 {
+      font-size: 3rem;
+    }
+  
+    .about-content {
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 5%;
+    }
+  
+    .about-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-image {
+      max-width: 100%;
+    }
+  
+    .about-text {
+      max-width: 100%;
+      padding-left: 0;
+      text-align: center;
+    }
+  
+    .features-list {
+      flex-direction: column;
+    }
+  
+    .why-choose-us h2, .sustainability h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .tagline{
+    color: antiquewhite;
+  }
+  

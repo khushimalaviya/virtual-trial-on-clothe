@@ -1,0 +1,29 @@
+.label-brown {
+    color: brown;
+}
+
+.hero-section {
+    position: relative;
+    /* Remove absolute positioning */
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #7f3131, #a74c4c);
+    border-radius: 20px;
+    padding: 40px;
+    /* margin: 50px auto; Adjust spacing */
+    max-width: 800px;
+}
+
+.custom-alert-text {
+    color: white;
+    background: linear-gradient(135deg, #7f3131, #a74c4c);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.small-select {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+    height: auto;
+}
