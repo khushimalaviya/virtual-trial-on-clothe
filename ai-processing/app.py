@@ -6,7 +6,7 @@
 # app = Flask(__name__)
 
 # PIXELCUT_API_URL = "https://api.developer.pixelcut.ai/v1/try-on"
-# PIXELCUT_API_KEY = "sk_5d34fe9279924ea5a05afee3e71a29ba"  # 🔴 Replace with a valid API Key
+# PIXELCUT_API_KEY = ""  # 🔴 Replace with a valid API Key
 
 # @app.route("/virtual-trial", methods=["POST"])
 # def process_image():
@@ -80,12 +80,12 @@ app = Flask(__name__)
 # 🔹 Configure Cloudinary
 cloudinary.config(
     cloud_name="ddqmel7sm",  # Replace with your Cloudinary Cloud Name
-    api_key="911362626644736",        # Replace with your API Key
-    api_secret="fjo1DmGCHvUKYhE8lIZUEiyVBmE"   # Replace with your API Secret
+    api_key="",        # Replace with your API Key
+    api_secret=""   # Replace with your API Secret
 )
 
-PIXELCUT_API_URL = "https://api.developer.pixelcut.ai/v1/try-on"
-PIXELCUT_API_KEY = "sk_7f01461fe1374db695c63f754f484db6"  # Replace with valid API Key
+PIXELCUT_API_URL = ""
+PIXELCUT_API_KEY = ""  # Replace with valid API Key
 
 @app.route("/virtual-trial", methods=["POST"])
 def process_image():
