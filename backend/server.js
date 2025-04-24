@@ -36,6 +36,7 @@ const virtualTryonRoutes = require('./routes/virtualTryonRoutes');
 const userRoutes = require('./routes/userRoutes');
 // const categoryRoutes = require('./routes/categoryRoutes');
 const dashboardRoutes = require("./routes/dashboardRoutes");
+const fpasswordRoutes = require('./routes/forgotPasswordRoutes');
 
 // Initialize Express App
 const app = express();
@@ -87,6 +88,7 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
 app.use("/api", userRoutes);
 app.use("/api/stats", dashboardRoutes);
+app.use('/api/fpassword', fpasswordRoutes);
 
 // Serve static files
 app.use(

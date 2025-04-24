@@ -11,6 +11,7 @@ const MyAccount = () => {
   const [userId, setUserId] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
 
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
@@ -65,10 +66,49 @@ const MyAccount = () => {
   };
 
   const handleChange = (e) => {
-    setProfile({ ...profile, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setProfile((prevProfile) => ({
+      ...prevProfile,
+      [name]: value,
+    }));
+
+    // Real-time validation
+    let error = "";
+
+    const numVal = Number(value);
+    const fieldRules = {
+      height: { min: 140, label: "Height must be at least 140 cm." },
+      weight: { min: 25, label: "Weight must be at least 25 kg." },
+      chest:  { min: 24, label: "Chest must be at least 24 cm." },
+      waist:  { min: 24, label: "Waist must be at least 24 cm." },
+      hip:    { min: 28, label: "Hip must be at least 28 cm." },
+    };
+
+    if (["height", "weight", "chest", "waist", "hip"].includes(name)) {
+      if (!value) {
+        error = "This field is required.";
+      } else if (isNaN(value)) {
+        error = "Must be a number.";
+      } else if (numVal <= 0) {
+        error = "Value must be greater than zero.";
+      } else if (numVal < fieldRules[name].min) {
+        error = fieldRules[name].label;
+      }
+
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: error,
+      }));
+    }
   };
 
   const handleSave = async () => {
+    // Check if there are any validation errors before saving
+    if (Object.values(errors).some((err) => err)) {
+      alert("Please fix validation errors before saving.");
+      return;
+    }
+
     try {
       const userUpdate = {
         name: profile.name,
@@ -126,57 +166,36 @@ const MyAccount = () => {
             <div className="form-group">
               <label><FaRulerVertical /> Height (cm)</label>
               <input type="text" name="height" value={profile.height} onChange={handleChange} />
+              {errors.height && <span className="error-msg">{errors.height}</span>}
             </div>
             <div className="form-group">
               <label><FaWeight /> Weight (kg)</label>
               <input type="text" name="weight" value={profile.weight} onChange={handleChange} />
+              {errors.weight && <span className="error-msg">{errors.weight}</span>}
             </div>
             <div className="form-group">
               <label><FaTshirt /> Chest (cm)</label>
               <input type="text" name="chest" value={profile.chest} onChange={handleChange} />
+              {errors.chest && <span className="error-msg">{errors.chest}</span>}
             </div>
             <div className="form-group">
               <label><FaTshirt /> Waist (cm)</label>
               <input type="text" name="waist" value={profile.waist} onChange={handleChange} />
+              {errors.waist && <span className="error-msg">{errors.waist}</span>}
             </div>
             <div className="form-group">
               <label><FaTshirt /> Hip (cm)</label>
               <input type="text" name="hip" value={profile.hip} onChange={handleChange} />
+              {errors.hip && <span className="error-msg">{errors.hip}</span>}
             </div>
           </div>
         </div>
-
-        {/* Optional: Style Preferences */}
-        {/* 
-        <div className="form-card">
-          <h3>🎨 Style Preferences</h3>
-          <div className="grid-two">
-            <div className="form-group">
-              <label>Skin Tone</label>
-              <select name="skinTone" value={profile.skinTone} onChange={handleChange}>
-                <option value="Light">Light</option>
-                <option value="Medium">Medium</option>
-                <option value="Dark">Dark</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Body Shape</label>
-              <select name="bodyShape" value={profile.bodyShape} onChange={handleChange}>
-                <option value="Rectangle">Rectangle</option>
-                <option value="Pear">Pear</option>
-                <option value="Apple">Apple</option>
-                <option value="Hourglass">Hourglass</option>
-                <option value="Inverted Triangle">Inverted Triangle</option>
-                <option value="Athletic">Athletic</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        */}
 
         <center>
           <div className="button-group">
-            <button className="save-btn" onClick={handleSave}><FaSave /> Save</button>
+            <button className="save-btn" onClick={handleSave} disabled={Object.values(errors).some(err => err)}>
+              <FaSave /> Save
+            </button>
           </div>
         </center>
       </div>

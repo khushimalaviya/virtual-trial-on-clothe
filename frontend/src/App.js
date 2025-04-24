@@ -77,6 +77,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./components/Homepage";
 import Login from "./components/common/Login";
+import ForgotPassword from "./components/common/ForgotPassword";
 import Signup from "./components/Customer/Signup";
 import Dashboard from "./components/Customer/Dashboard";
 import Header from "./components/common/Header";
@@ -104,6 +105,7 @@ function App() {
         {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />

@@ -4,13 +4,13 @@ const router = express.Router();
 const ChartMapping = require('../models/ChartMapping');
 const Color = require('../models/Color');
 
-// New route: GET /by-category-size/:categoryId/:sizeId
-
-router.get('/by-category-size/:categoryId/:sizeId', async (req, res) => {
-  const { categoryId, sizeId } = req.params;
+// New route: GET /by-brand-category-size/:brandId/:categoryId/:sizeId
+router.get('/by-brand-category-size/:brandId/:categoryId/:sizeId', async (req, res) => {
+  const { brandId, categoryId, sizeId } = req.params;
 
   try {
     const mappings = await ChartMapping.find({
+      brand_id: new mongoose.Types.ObjectId(brandId),
       category_id: new mongoose.Types.ObjectId(categoryId),
       size_id: new mongoose.Types.ObjectId(sizeId),
     });
@@ -26,10 +26,11 @@ router.get('/by-category-size/:categoryId/:sizeId', async (req, res) => {
 
     res.json(formatted);
   } catch (err) {
-    console.error('Error fetching colors by category and size:', err);
+    console.error('Error fetching colors:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
+
 
 
 module.exports = router;

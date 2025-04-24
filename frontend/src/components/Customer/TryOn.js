@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import ImageUploading from "react-images-uploading";
-import ResultPreview from "./ResultPreview";
+import { FiMoreVertical } from "react-icons/fi";
 import "../../styles/TryOn.css";
+// import {TryOn3DView} from "./TryOn3DView";
 
 const TryOn = () => {
   const location = useLocation();
@@ -22,6 +23,9 @@ const TryOn = () => {
   const [resultImage, setResultImage] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const menuRef = useRef();
 
   const handleUpload = (imageList) => {
     if (imageList.length > 0) {
@@ -94,15 +98,68 @@ const TryOn = () => {
     }
   };
 
+  const handleDownload = async () => {
+    try {
+      const response = await fetch(resultImage);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "virtual-tryon-preview.jpg";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      alert("❌ Failed to download the image.");
+      console.error(err);
+    }
+  };
+
+  const handleShare = async () => {
+    const shareData = {
+      title: "My Virtual Try-On",
+      text: "Check out this outfit I tried on virtually!",
+      url: resultImage,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        alert("Image shared successfully!");
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(resultImage);
+        alert("Sharing not supported. Link copied to clipboard!");
+      } catch (err) {
+        alert("Failed to copy link. Please try manually.");
+      }
+    }
+  };
+
   useEffect(() => {
     if (error) {
       alert(error);
     }
+
+    // Close menu if click outside
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [error]);
 
   return (
     <div className="try-on-container text-center py-5">
-      <br/>
+      <br />
       <h2 className="text-gradient mb-4">Virtual Try-On</h2>
 
       <div className="upload-section d-flex flex-column align-items-center">
@@ -128,7 +185,6 @@ const TryOn = () => {
               src={selectedOutfit}
               alt="Selected Outfit"
               className="try-on-image shadow-lg rounded"
-              // width={100}
             />
           </div>
         )}
@@ -144,7 +200,72 @@ const TryOn = () => {
           </div>
         )}
 
-        <ResultPreview resultImage={resultImage} />
+        {resultImage && (
+          <div className="image-box mx-3 position-relative d-inline-block">
+            <h4 className="text-center selected-outfit-title">Try-On Result</h4>
+            <img
+              src={resultImage}
+              alt="Result"
+              className="try-on-image shadow-lg rounded"
+            />
+
+            <div
+              style={{
+                position: "absolute",
+                top: "40px",
+                right: "0",
+                zIndex: 10,
+
+
+              }}
+              ref={menuRef}
+            >
+              <button
+                className="btn rounded-circle"
+                style={{
+                  backgroundColor: "cream",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                <FiMoreVertical size={25} color="white" />
+              </button>
+
+              {menuOpen && (
+                <div
+                  className="dropdown-menu show text-start"
+                  style={{
+                    position: "absolute",
+                    top: "35px",
+                    right: "0",
+                    padding: "8px",
+                    minWidth: "180px",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                    background: "#fff",
+                    borderRadius: "0.5rem",
+                    zIndex: 20,
+                  }}
+                >
+                  <button className="dropdown-item" onClick={handleDownload}>
+                    📥 Download Try-On Image
+                  </button>
+                  <button className="dropdown-item" onClick={handleShare}>
+                    📤 Share
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* 👇 3D View Section */}
+        {/* {resultImage && (
+          <div className="mt-5">
+            <h4 className="mb-3">3D View</h4>
+            <TryOn3DView imageUrl={resultImage} />
+          </div>
+        )} */}
       </div>
 
       <div className="mt-4">

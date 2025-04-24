@@ -112,7 +112,7 @@ export default function Dashboard() {
               Experience the future of fashion with our AI-driven virtual try-on technology. Upload your image and see how different outfits look on you in real-time, without stepping into a store.
             </p>
             <p>
-              Our advanced AI analyzes your body type, skin tone, and style preferences to recommend the best fashion choices for you.
+              Our advanced analyzes your body type, skin tone, and style preferences to recommend the best fashion choices for you.
             </p>
             <button onClick={() => navigate("/autosizechart")} className="try-now-btn">
               TRY NOW

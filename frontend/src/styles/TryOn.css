@@ -50,3 +50,8 @@
   color: #5a2f3d; /* Pink shade */
   font-weight: bold;
 }
+
+.clickable-image {
+  cursor: pointer;
+}
+

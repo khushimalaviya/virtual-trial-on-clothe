@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Clothe = require("../models/Clothe");
+const Clothe = require("../models/ChartMapping");
 const mongoose = require("mongoose");
 
 // Add a new Clothe item
@@ -15,15 +15,23 @@ router.post("/", async (req, res) => {
     }
 });
 
-// Get all Clothe items
 router.get("/", async (req, res) => {
     try {
-        const clotheItems = await Clothe.find();
-        res.json(clotheItems);
+        const charts = await Clothe.find()
+            .populate("brand_id", "brandName")
+            .populate("category_id", "cat_name")
+            .populate("size_id", "size chest waist fit")
+            .populate("color_id", "name hex rgb")
+            .populate("clothe_id", "name");
+
+        res.json(charts);
     } catch (error) {
-        res.status(500).json({ message: "Error retrieving Clothe items", error });
+        console.error("Detailed ChartMapping Error:", error);  // 👈 log full error
+        res.status(500).json({ message: "Error fetching chart mappings", error: error.message || error });
     }
 });
+
+
 
 // Get a single Clothe item by ID
 router.get("/:id", async (req, res) => {

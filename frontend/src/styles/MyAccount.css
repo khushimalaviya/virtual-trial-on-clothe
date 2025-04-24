@@ -265,3 +265,11 @@ button:hover {
         width: 100%;
     }
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+  }
+  

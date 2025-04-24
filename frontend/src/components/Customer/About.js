@@ -42,7 +42,7 @@ export default function About() {
         <div className="features-list">
           <div className="feature-box" data-aos="zoom-in">
             <span>👗</span>
-            <h3>AI-powered Virtual Try-On</h3>
+            <h3>Virtual Try-On</h3>
           </div>
           <div className="feature-box" data-aos="zoom-in">
             <span>📏</span>

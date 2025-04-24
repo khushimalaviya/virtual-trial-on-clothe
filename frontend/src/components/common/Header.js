@@ -76,7 +76,7 @@ export default function Header() {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-white fs-5 btn btn-link" to="/autosizechart" onClick={closeMenu}>
+              <Link className="nav-link text-white fs-5 btn btn-link" to="/catalog" onClick={closeMenu}>
                 Try On
               </Link>
             </li>

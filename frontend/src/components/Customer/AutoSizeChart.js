@@ -78,32 +78,40 @@ const AutoSizeChart = () => {
     setSelectedSize('');
     setSelectedColor('');
     setColors([]);
-
-    if (categoryObjectId) {
-      axios.get(`http://localhost:5000/api/size-mappings/by-category/${categoryObjectId}`)
+  
+    const selectedBrandObj = brands.find(b => b.brand_id === selectedBrand);
+    const brandObjectId = selectedBrandObj ? selectedBrandObj._id : '';
+  
+    if (categoryObjectId && brandObjectId) {
+      axios.get(`http://localhost:5000/api/size-mappings/by-brand-category/${brandObjectId}/${categoryObjectId}`)
         .then(res => {
           const fetchedSizes = Array.isArray(res.data) ? res.data : res.data.sizes || [];
           setSizes(fetchedSizes);
         })
-        .catch(err => console.error('Error fetching sizes by category:', err));
+        .catch(err => console.error('Error fetching sizes by brand and category:', err));
     } else {
       setSizes([]);
     }
   };
+  
 
   const handleSizeChange = (e) => {
     const sizeId = e.target.value;
     setSelectedSize(sizeId);
     setSelectedColor('');
   
-    if (sizeId && selectedCategory) {
-      axios.get(`http://localhost:5000/api/color-mappings/by-category-size/${selectedCategory}/${sizeId}`)
+    const selectedBrandObj = brands.find(b => b.brand_id === selectedBrand);
+    const brandObjectId = selectedBrandObj ? selectedBrandObj._id : '';
+  
+    if (brandObjectId && sizeId && selectedCategory) {
+      axios.get(`http://localhost:5000/api/color-mappings/by-brand-category-size/${brandObjectId}/${selectedCategory}/${sizeId}`)
         .then(res => setColors(res.data))
         .catch(err => console.error('Error fetching colors:', err));
     } else {
       setColors([]);
     }
   };
+  
   
 
   const handleColorChange = (e) => {

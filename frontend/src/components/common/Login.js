@@ -52,6 +52,7 @@ const Login = () => {
         };
 
         localStorage.setItem("user", JSON.stringify(userData));
+        window.dispatchEvent(new Event("storage")); // 🔥 This triggers Header to update!
         toast.success(`Welcome, ${data.name}!`);
 
         // Redirect based on role
@@ -86,7 +87,7 @@ const Login = () => {
               // localStorage.setItem("user", JSON.stringify(userData));
               // ✅ Store user data including role
               localStorage.setItem("user", JSON.stringify({ userId, name, email, role, token }));
-
+              window.dispatchEvent(new Event("storage")); // 🔥 This triggers Header to update!
               console.log(localStorage);
               toast.success(`Welcome, ${userData.name}!`);
               setTimeout(() => {
@@ -131,10 +132,17 @@ const Login = () => {
 
           <br /><br />
 
+          <p className="signup-link">
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </p>
+
+
           {/* 🔗 Sign Up Link */}
           <p className="signup-link">
             Don't have an account? <Link to="/signup">Sign Up</Link>
           </p>
+
+
 
           <ToastContainer />
         </div>
